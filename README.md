@@ -16,13 +16,33 @@ convert a collection to a hash
 ## Install
 
 ```
-npm install collection-to-hash
+yarn add collection-to-hash
 ```
+
+## API
+```js
+collectionToHash(array, [getKey], [getValue])
+```
+
+### Arguments
+collection (Array): the collection to convert
+getKey (function): returns the value for the hash key
+getValue (function): returns the value for the hash value
 
 ## Usage
 
 ```js
-var collectionToHash = require('collection-to-hash')
+import collectionToHash from 'collection-to-hash'
+
+const collection = [{ key: 123, ... }, { key: 'abc', ... }]
+const hash = collectionToHash(collection, x => x.key, x => omit(x, ['key']))
+
+/*
+  {
+    123: { ... },
+    abc: { ... }
+  }
+*/
 ```
 
 ## Contributing
