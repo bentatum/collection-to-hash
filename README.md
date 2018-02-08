@@ -13,6 +13,10 @@
 
 convert a collection to a hash
 
+## Tip Jar
+BTC 33dgdBhV1Yf5ERKLLKS7ztEAEEx3zTvSkw
+ETH 0xa6938ead6d6820377fed78b657e4eb6c5c44d1b3
+
 ## Install
 
 ```
@@ -21,13 +25,8 @@ yarn add collection-to-hash
 
 ## API
 ```js
-collectionToHash(array, [getKey], [getValue])
+collectionToHash(array, string|function|optional|default:'key', string|function|optional)
 ```
-
-### Arguments
-collection (Array): the collection to convert
-getKey (function): returns the value for the hash key
-getValue (function): returns the value for the hash value
 
 ## Usage
 
@@ -35,7 +34,10 @@ getValue (function): returns the value for the hash value
 import collectionToHash from 'collection-to-hash'
 
 const collection = [{ key: 123, ... }, { key: 'abc', ... }]
-const hash = collectionToHash(collection, x => x.key, x => omit(x, ['key']))
+const hash = collectionToHash(collection)
+// const hash = collectionToHash(collection, 'key')
+// const hash = collectionToHash(collection, x => x.key)
+// const hash = collectionToHash(collection, 'key', x => x)
 
 /*
   {
